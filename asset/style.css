@@ -7,6 +7,9 @@ h1{
 h1{
     font-size: 3rem;
 }
+p{
+    margin:0;
+}
 .flexeur{
     display: flex;
     align-items: center;
@@ -19,8 +22,8 @@ h1{
 header *{
     flex: auto;
     text-align: center;
-    padding: 1rem;
-    margin: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
     border: 0.25rem solid black;
     color: inherit;
     text-decoration: none;
@@ -30,7 +33,7 @@ header *{
     font-size: 1.5rem;
 }
 #pion{
-    margin: 1rem 0 1rem 0;
+    margin: 0.5rem 0 0.5rem 0;
     justify-content: center;
 }
 .pionItem{
@@ -54,4 +57,31 @@ header *{
 }
 .ligne{
     flex: auto;
+}
+#plateau{
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+}
+.verif{
+    flex-wrap: wrap;
+    padding: 1rem 1rem 0.5rem 1rem;
+    justify-content: space-between;
+    height: 4rem;
+}
+.jeux{
+    flex-direction: column;
+}
+.verif *{
+    width: 40%;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: black;
+}
+.jeux *{
+    width: 2rem;
+    height: 2rem;
+    margin: 0.25rem;
+    background-color: gray;
+    border-radius: 50%;
 }
