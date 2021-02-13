@@ -1,0 +1,57 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    text-align: center;
+}
+h1{
+    font-size: 3rem;
+}
+.flexeur{
+    display: flex;
+    align-items: center;
+}
+.bordure{
+    border: 0.25rem solid black;
+    border-radius: 1rem;
+    box-shadow: 0.25rem 0.25rem gray;
+}
+header *{
+    flex: auto;
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem;
+    border: 0.25rem solid black;
+    color: inherit;
+    text-decoration: none;
+    font-size: 2rem;
+}
+#status{
+    font-size: 1.5rem;
+}
+#pion{
+    margin: 1rem 0 1rem 0;
+    justify-content: center;
+}
+.pionItem{
+    border: 0.25rem solid gray;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.25rem;
+}
+.jaune{
+    background-color: yellow;
+}
+.rouge{
+    background-color: red;
+}
+.bleu{
+    background-color: blue;
+}
+.vert{
+    background-color: green;
+}
+.ligne{
+    flex: auto;
+}
