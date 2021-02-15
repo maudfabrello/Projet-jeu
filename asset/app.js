@@ -23,8 +23,40 @@ function shufflePawns()
     }
     return fourRandomPawns;
 }
+// function verif()
+// {
+//     console.log('verif')
+// }
+function button(){
+    let buttonList = document.querySelectorAll('.pawnItem');
+    buttonList.forEach(item => {
+        item.addEventListener('click',function()
+        {
+            putColor(this.classList[1]);
+        });
+    });
+}
+function putColor(color){
+    let pawnList = document.querySelectorAll('.playboard>*[class^="element"]');
+    var BreakException = {};
+    try{
+        pawnList.forEach(item => {
+            if(item.classList.length===1)
+            {
+                item.classList.add(color);
+                item.classList.add('round');
+                throw BreakException;
+            }
+        });
+    }
+    catch(e)
+    {
+        if(e !== BreakException) throw e;
+    }
+}
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
+button();
 // playBoardStarter();
 
 
