@@ -23,10 +23,13 @@ function shufflePawns()
     }
     return fourRandomPawns;
 }
-// function verif()
-// {
-//     console.log('verif')
-// }
+function verif(stringToverify)
+{
+    var buttonVerif = document.createElement("button");
+    var textContent = document.createTextNode('Verification');
+    buttonVerif.appendChild(textContent);
+    stringToverify.appendChild(buttonVerif);
+}
 function button(){
     let buttonList = document.querySelectorAll('.pawnItem');
     buttonList.forEach(item => {
@@ -43,8 +46,15 @@ function putColor(color){
         pawnList.forEach(item => {
             if(item.classList.length===1)
             {
+                if (document.contains(document.getElementsByTagName("button")[0])){
+                    document.getElementsByTagName("button")[0].remove();
+                }
                 item.classList.add(color);
                 item.classList.add('round');
+                if(item.classList[0]==='element4')
+                {
+                    verif(item.parentElement.parentElement);
+                }
                 throw BreakException;
             }
         });
