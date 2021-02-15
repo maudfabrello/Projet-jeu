@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maud Mastermind</title>
+    <title>Mastermind</title>
     <link rel="stylesheet" href="asset/style.css" type="text/css" media="screen"/>
 </head>
 <body>
     <h1>Mastermind</h1>
-    <header class="flexeur">
-        <a href="#" id="jouer" class="bordure">jouer</a>
-        <a href="#" id="relancer" class="bordure">relancer</a>
+    <header class="flexor">
+        <a href="#" id="play" class="border">play</a>
+        <a href="#" id="restart" class="border">restart</a>
     </header>
-    <section id="status" class="flexeur">
+    <section id="status" class="flexor">
         <b>status:</b>
-        <p>le jeu n'a pas commencé</p>
+        <p>The game did not start yet</p>
     </section>
-    <section id="pion" class="flexeur">
-        <div class="pionItem jaune"></div>
-        <div class="pionItem rouge"></div>
-        <div class="pionItem bleu"></div>
-        <div class="pionItem vert"></div>
+    <section id="pawn" class="flexor">
+        <div class="pawnItem yellow"></div>
+        <div class="pawnItem red"></div>
+        <div class="pawnItem blue"></div>
+        <div class="pawnItem green"></div>
     </section>
-    <section id="plateau" class="flexeur bordure"><div>veuillez lancer le jeu !</div></section>
+    <section id="playboard" class="border flexor"><div>let's start !</div></section>
     <script src="asset/app.js"></script>
     <script src="asset/drag.js"></script>
 </body>

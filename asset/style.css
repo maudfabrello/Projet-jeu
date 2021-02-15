@@ -10,11 +10,11 @@ h1{
 p{
     margin:0;
 }
-.flexeur{
+.flexor{
     display: flex;
     align-items: center;
 }
-.bordure{
+.border{
     border: 0.25rem solid black;
     border-radius: 1rem;
     box-shadow: 0.25rem 0.25rem gray;
@@ -32,33 +32,33 @@ header *{
 #status{
     font-size: 1.5rem;
 }
-#pion{
+#pawn{
     margin: 0.5rem 0 0.5rem 0;
     justify-content: center;
 }
-.pionItem{
+.pawnItem{
     border: 0.25rem solid gray;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
     margin: 0.25rem;
 }
-.jaune{
+.yellow{
     background-color: yellow;
 }
-.rouge{
+.red{
     background-color: red;
 }
-.bleu{
+.blue{
     background-color: blue;
 }
-.vert{
-    background-color: green;
+.green{
+    background-color: #008000;
 }
-.ligne{
+.string{
     flex: auto;
 }
-#plateau{
+#playboard{
     width: 90%;
     margin: auto;
     justify-content: center;
@@ -69,7 +69,7 @@ header *{
     justify-content: space-between;
     height: 4rem;
 }
-.jeux{
+.playboard{
     flex-direction: column;
 }
 .verif *{
@@ -78,7 +78,7 @@ header *{
     border-radius: 50%;
     background-color: black;
 }
-.jeux *{
+.playboard *{
     width: 2rem;
     height: 2rem;
     margin: 0.25rem;
