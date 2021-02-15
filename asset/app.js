@@ -12,6 +12,17 @@ function playBoardStarter(){
     }
     playBoard.innerHTML= render;
 }
+function shufflePawns()
+{
+    var fourPawns=["yellow","red","green","blue"];
+    var fourRandomPawns=[];
+    let n = 0;
+    while (n<4){
+        fourRandomPawns.push(fourPawns[Math.floor(Math.random() * Math.floor(4))]);
+        n++;
+    }
+    return fourRandomPawns;
+}
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
 // playBoardStarter();
