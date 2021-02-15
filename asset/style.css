@@ -43,25 +43,38 @@ header *{
     height: 2rem;
     margin: 0.25rem;
 }
+.round{
+    border: 2px solid black;
+}
 .yellow{
-    background-color: yellow;
+    background-color: yellow !important;
 }
 .red{
-    background-color: red;
+    background-color: red !important;
 }
 .blue{
-    background-color: blue;
+    background-color: blue !important;
 }
 .green{
-    background-color: #008000;
+    background-color: #008000 !important;
 }
 .string{
     flex: auto;
+    position: relative;
+}
+button{
+    position: absolute;
+    padding: 1rem;
+    color: white;
+    border-radius: 1rem;
+    background-color:green;
+    border: 0;
 }
 #playboard{
     width: 90%;
     margin: auto;
     padding: 1rem 0 1rem 0;
+    align-items: flex-start;
 }
 .verif{
     justify-content: space-between;

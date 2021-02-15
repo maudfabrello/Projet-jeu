@@ -12,8 +12,61 @@ function playBoardStarter(){
     }
     playBoard.innerHTML= render;
 }
+function shufflePawns()
+{
+    var fourPawns=["yellow","red","green","blue"];
+    var fourRandomPawns=[];
+    let n = 0;
+    while (n<4){
+        fourRandomPawns.push(fourPawns[Math.floor(Math.random() * Math.floor(4))]);
+        n++;
+    }
+    return fourRandomPawns;
+}
+function verif(stringToverify)
+{
+    var buttonVerif = document.createElement("button");
+    var textContent = document.createTextNode('Verification');
+    buttonVerif.appendChild(textContent);
+    stringToverify.appendChild(buttonVerif);
+}
+function button(){
+    let buttonList = document.querySelectorAll('.pawnItem');
+    buttonList.forEach(item => {
+        item.addEventListener('click',function()
+        {
+            putColor(this.classList[1]);
+        });
+    });
+}
+function putColor(color){
+    let pawnList = document.querySelectorAll('.playboard>*[class^="element"]');
+    var BreakException = {};
+    try{
+        pawnList.forEach(item => {
+            if(item.classList.length===1)
+            {
+                if (document.contains(document.getElementsByTagName("button")[0])){
+                    document.getElementsByTagName("button")[0].remove();
+                }
+                item.classList.add(color);
+                item.classList.add('round');
+                if(item.classList[0]==='element4')
+                {
+                    verif(item.parentElement.parentElement);
+                }
+                throw BreakException;
+            }
+        });
+    }
+    catch(e)
+    {
+        if(e !== BreakException) throw e;
+    }
+}
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
+button();
 // playBoardStarter();
 
 
