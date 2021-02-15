@@ -61,22 +61,35 @@ header *{
 #playboard{
     width: 90%;
     margin: auto;
-    justify-content: center;
+    padding: 1rem 0 1rem 0;
 }
 .verif{
-    flex-wrap: wrap;
-    padding: 1rem 1rem 0.5rem 1rem;
     justify-content: space-between;
-    height: 4rem;
+    flex-wrap: wrap;
 }
 .playboard{
     flex-direction: column;
+    flex-wrap: wrap;
 }
 .verif *{
-    width: 40%;
+    flex:50%;
     height: 1.5rem;
-    border-radius: 50%;
+    position: relative;
+}
+.verif span{
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
     background-color: black;
+    border-radius: 50%;
+}
+.verif *:first-child span, .verif *:nth-child(0n+3) span
+{
+    left: 2rem;
+}
+.verif *:nth-child(0n+2) span, .verif *:nth-child(0n+4) span
+{
+    right: 2rem;
 }
 .playboard *{
     width: 2rem;
