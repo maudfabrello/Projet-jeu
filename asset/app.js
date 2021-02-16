@@ -68,16 +68,3 @@ let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
 button();
 // playBoardStarter();
-
-
-//function 1 : start the game
-
-// function Mastermind(numbers, nblignes, nbcouleurs, nomvariable) {
-//     //D�claration des attributs d'objets
-//     this.nbcolonnes = nbcolonnes;
-//     this.nblignes = nblignes;
-//     this.nbcouleurs = nbcouleurs;
-//     this.nomvariable = nomvariable;
-//     this.proposition = new Array();
-//     this.solution = new Array();
-// }
