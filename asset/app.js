@@ -11,6 +11,17 @@ function playBoardStarter(){
         render+= "</div>"
     }
     playBoard.innerHTML= render;
+    deleteColor();
+}
+function deleteColor()
+{
+    let pawnList = document.querySelectorAll('.playboard>*[class^="element"]');
+    pawnList.forEach(item => {
+        item.addEventListener('click',function()
+        {
+            this.className=this.classList[0];
+        })
+    })
 }
 function shufflePawns()
 {
@@ -31,6 +42,7 @@ function verif(stringToverify)
     stringToverify.appendChild(buttonVerif);
     buttonVerif.addEventListener('click',function(){
         button(true)
+        buttonVerif.remove();
     })
 }
 function button(active){
@@ -53,9 +65,6 @@ function putColor(){
         pawnList.forEach(item => {
             if(item.classList.length===1)
             {
-                if (document.contains(document.getElementsByTagName("button")[0])){
-                    document.getElementsByTagName("button")[0].remove();
-                }
                 item.classList.add(this.classList[1]);
                 item.classList.add('round');
                 if(item.classList[0]==='element4')
