@@ -26,20 +26,27 @@ function shufflePawns()
 function verif(stringToverify)
 {
     var buttonVerif = document.createElement("button");
-   // var textContent = document.createTextNode('verification/reset'); // effacerait la ligne si joueur n'est pas sûr de sa combinaison ?
+    var textContent = document.createTextNode('Ok'); // effacerait la ligne si joueur n'est pas sûr de sa combinaison ?
     buttonVerif.appendChild(textContent);
     stringToverify.appendChild(buttonVerif);
+    buttonVerif.addEventListener('click',function(){
+        button(true)
+    })
 }
-function button(){
+function button(active){
     let buttonList = document.querySelectorAll('.pawnItem');
     buttonList.forEach(item => {
-        item.addEventListener('click',function()
+        if(active===true)
         {
-            putColor(this.classList[1]);
-        });
+            item.addEventListener('click',putColor);
+        }
+        else if(active===false)
+        {
+            item.removeEventListener("click",putColor);
+        }  
     });
 }
-function putColor(color){
+function putColor(){
     let pawnList = document.querySelectorAll('.playboard>*[class^="element"]');
     var BreakException = {};
     try{
@@ -49,11 +56,12 @@ function putColor(color){
                 if (document.contains(document.getElementsByTagName("button")[0])){
                     document.getElementsByTagName("button")[0].remove();
                 }
-                item.classList.add(color);
+                item.classList.add(this.classList[1]);
                 item.classList.add('round');
                 if(item.classList[0]==='element4')
                 {
                     verif(item.parentElement.parentElement);
+                    button(false);
                 }
                 throw BreakException;
             }
@@ -66,27 +74,28 @@ function putColor(color){
 }
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
-button();
+button(true);
 
 //TO DO : fonction de vérification de la combianaison couleur/position de la ligne en cours
-function compare () {
-    var isMatch = true;
-    var codeCopy = code.slice(0);
+// function compare () {
+//     var isMatch = true;
+//     var codeCopy = code.slice(0);
 
-// pion de bonne couleur ET bien placé
-    for (var i = 0; i < code.length; i++) {
-      if (guess[i] === code[i]) {
-        //insertPawn('hit');
-        codeCopy[i] = 0;
-        guess[i] = -1;
-      } else
-        isMatch = false;
-    }
+// // pion de bonne couleur ET bien placé
+//     for (var i = 0; i < code.length; i++) {
+//       if (guess[i] === code[i]) {
+//         //insertPawn('hit');
+//         codeCopy[i] = 0;
+//         guess[i] = -1;
+//       } else
+//         isMatch = false;
+//     }
 
-// pion de bonne couleur MAIS mal placé
-    for (var j = 0; j < code.length; j++) {
-      if (codeCopy.indexOf(guess[j]) !== -1) {
-        //insertPawn('almost');
-        codeCopy[codeCopy.indexOf(guess[j])] = 0;
-      }
-    }
+// // pion de bonne couleur MAIS mal placé
+//     for (var j = 0; j < code.length; j++) {
+//       if (codeCopy.indexOf(guess[j]) !== -1) {
+//         //insertPawn('almost');
+//         codeCopy[codeCopy.indexOf(guess[j])] = 0;
+//       }
+//     }
+// }
