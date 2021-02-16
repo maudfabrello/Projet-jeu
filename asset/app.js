@@ -68,6 +68,25 @@ let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
 button();
 
-//fonction de vérification de la combianaison couleur/place de la ligne en cours
+//TO DO : fonction de vérification de la combianaison couleur/position de la ligne en cours
+function compare () {
+    var isMatch = true;
+    var codeCopy = code.slice(0);
 
+// pion de bonne couleur ET bien placé
+    for (var i = 0; i < code.length; i++) {
+      if (guess[i] === code[i]) {
+        //insertPawn('hit');
+        codeCopy[i] = 0;
+        guess[i] = -1;
+      } else
+        isMatch = false;
+    }
 
+// pion de bonne couleur MAIS mal placé
+    for (var j = 0; j < code.length; j++) {
+      if (codeCopy.indexOf(guess[j]) !== -1) {
+        //insertPawn('almost');
+        codeCopy[codeCopy.indexOf(guess[j])] = 0;
+      }
+    }
