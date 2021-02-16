@@ -26,7 +26,7 @@ function shufflePawns()
 function verif(stringToverify)
 {
     var buttonVerif = document.createElement("button");
-    var textContent = document.createTextNode('Verification');
+   // var textContent = document.createTextNode('reset'); // effacerait la ligne si joueur n'est pas sûr de sa combinaison
     buttonVerif.appendChild(textContent);
     stringToverify.appendChild(buttonVerif);
 }
