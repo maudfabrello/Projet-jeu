@@ -1,7 +1,7 @@
 function playBoardStarter(){
     let playBoard = document.getElementById('playboard');
     //reset the playboard
-    playBoard.innerHTML = ''; // déclare une variable vide
+    playBoard.innerHTML = ''; 
     let render =''
     for(let i=1;i<=10;i++) // i=1/10 colonnes = limite/i++ : incrémentation de 1 à 1
     {
@@ -26,7 +26,7 @@ function shufflePawns()
 function verif(stringToverify)
 {
     var buttonVerif = document.createElement("button");
-   // var textContent = document.createTextNode('reset'); // effacerait la ligne si joueur n'est pas sûr de sa combinaison
+   // var textContent = document.createTextNode('verification/reset'); // effacerait la ligne si joueur n'est pas sûr de sa combinaison ?
     buttonVerif.appendChild(textContent);
     stringToverify.appendChild(buttonVerif);
 }
@@ -67,4 +67,7 @@ function putColor(color){
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
 button();
-// playBoardStarter();
+
+//fonction de vérification de la combianaison couleur/place de la ligne en cours
+
+
