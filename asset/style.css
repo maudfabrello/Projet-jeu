@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap');
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
+    font-family: 'Lexend Mega', sans-serif;
+    margin: 0;
+    background-image: url(https://cdn.pixabay.com/photo/2018/08/25/11/20/abstract-3629844_1280.jpg);
 }
 h1{
     text-align: center;
@@ -20,15 +24,18 @@ p{
     border-radius: 1rem;
     box-shadow: 0.25rem 0.25rem gray;
 }
+header{
+    justify-content: center;
+}
 header *{
-    flex: auto;
+    width: 50%;
     text-align: center;
     padding: 0.5rem;
     margin: 0.5rem;
-    border: 0.25rem solid black;
-    color: inherit;
+    color: white;
     text-decoration: none;
     font-size: 2rem;
+    background-color: black;
 }
 #status{
     font-size: 1.5rem;
@@ -48,16 +55,16 @@ header *{
     border: 2px solid black;
 }
 .yellow{
-    background-color: yellow !important;
+    background-color: #00ced1 !important;
 }
 .red{
-    background-color: red !important;
+    background-color: #ff4500 !important;
 }
 .blue{
-    background-color: blue !important;
+    background-color: #da70d6 !important;
 }
 .green{
-    background-color: #008000 !important;
+    background-color: palegoldenrod !important;
 }
 .string{
     flex: auto;
@@ -70,12 +77,16 @@ button{
     border-radius: 1rem;
     background-color:green;
     border: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
 }
 #playboard{
     width: 90%;
     margin: auto;
     padding: 1rem 0 1rem 0;
     align-items: flex-start;
+    background-color: white;
 }
 .verif{
     justify-content: space-between;
@@ -125,8 +136,15 @@ button{
     width: 50%;
     height: 50%;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.8;
     color: white;
     margin: auto;
     display: none;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    font-size: 3rem;
+    border-radius: 2rem;
 }

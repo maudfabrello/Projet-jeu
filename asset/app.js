@@ -203,6 +203,7 @@ function loss(resulter,string)
 }
 let string = 1;
 let colorRamdon = shufflePawns();
+console.log(colorRamdon)
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
 button(true);
