@@ -11,6 +11,7 @@ function playBoardStarter(){
         render+= "</div>"
     }
     playBoard.innerHTML= render;
+    string=1;
     deleteColor();
 }
 function deleteColor()
@@ -20,14 +21,14 @@ function deleteColor()
         item.addEventListener('click',function()
         {
             button(true);
-            let buttonVerifHide= document.getElementsByTagName('button') [0];
+            let buttonVerifHide= document.getElementsByTagName('button')[0];
             if(this.parentElement.parentElement.classList[1]==string)
             {
-            this.className=this.classList[0];
-            if (document.contains(buttonVerifHide)){
-                buttonVerifHide.remove();
+               this.className=this.classList[0];
+               if (document.contains(buttonVerifHide)){
+                    buttonVerifHide.remove();
+                }      
             }
-        }
         })
     })
 }
@@ -45,7 +46,7 @@ function shufflePawns()
 function verif(stringToverify)
 {
     var buttonVerif = document.createElement("button");
-    var textContent = document.createTextNode('Ok'); // validerait la ligne quand joueur est sûr de sa combinaison
+    var textContent = document.createTextNode('Ok'); // effacerait la ligne si joueur n'est pas sûr de sa combinaison ?
     buttonVerif.appendChild(textContent);
     stringToverify.appendChild(buttonVerif);
     buttonVerif.addEventListener('click',function(){
@@ -79,7 +80,7 @@ function putColor(){
                 item.classList.add('round');
                 let showButton = false
                 let arrayNotClear = item.parentElement.children;
-                for(let i = 1; i <= arrayNotClear.length;i++){
+                for(let i = 1;i <= arrayNotClear.length;i++){
                     if(arrayNotClear[i-1].classList[1]!=undefined)
                     {
                         showButton=true
@@ -88,7 +89,7 @@ function putColor(){
                         showButton=false
                     }
                 }
-                if (showButton) {
+                if(showButton){
                     verif(item.parentElement.parentElement);
                     button(false);
                 }
@@ -100,49 +101,71 @@ function putColor(){
     {
         if(e !== BreakException) throw e;
     }
+}
+function verifString(string)
+{
+    let itemToVerif = document.querySelectorAll('.string');
+    var BreakException = {};
+    let stringColorPlayer=[];
+    try{
+        itemToVerif.forEach(item => {
+            if(item.classList[1]==string)
+            {
+                let stringColorArray = item.children[1].children;
+                for(let i =1;i<=stringColorArray.length;i++){
+                   stringColorPlayer.push(stringColorArray[i-1].classList[1]);
+                };
+                throw BreakException;
+            } 
+        });
+    }
+    catch(e)
+    {
+        if(e !== BreakException) throw e;
+    }
     let result=[0,0,0,0];
     let colorplay= [0,0,0,0]
-    for(let i = 0; i<stringColorPlayer.length;i++){
-        if(colorRandom[i]==stringColorPlayer[i])
+    for(let i = 0;i<stringColorPlayer.length;i++){
+        if(colorRamdon[i]==stringColorPlayer[i])
         {
             result[i]=2;
             colorplay[i]=1;
-    }
-}
-    for(let i=0; i<result.length;i++)
-    {
-    let colortarget = stringColorPlayer[i];
-    for(let o=O; o<result.length;o++)
-    {
-        if(colortarget==colorRandom [o])
-        {
-            if(colorplay[i]===0)
-            {
-                result[i]=1;
-                break;
-            }
         }
     }
-}
-let showResult = document.querySelectorAll('.string');
-showResult.forEach(item=> {
-    if(item.classList[1]==string)
+    for(let i=0; i<result.length;i++)
     {
-        showResult=item.children[0];
+        let colotarget = stringColorPlayer[i];
+        for(let o=0; o<result.length;o++)
+        {
+            if(colotarget==colorRamdon[o])
+            {
+                if(colorplay[i]===0)
+                {
+                    result[i]=1;
+                    break;
+                }
+            }                
+        }
     }
-})
-for(let i =0;i<showResult.children.length;i++)
-{
-    if(result[i]===2)
+    let showResult = document.querySelectorAll('.string');
+    showResult.forEach(item=>{
+        if(item.classList[1]==string)
+        {
+            showResult=item.children[0];
+        }
+    })
+    for(let i =0;i<showResult.children.length;i++)
     {
-        showResult.children[i].children[0].className='gold';
-    }else if(result[i]===1)
-    {
-        showResult.children[1].children[0].className='silver';
+        if(result[i]===2)
+        {
+            showResult.children[i].children[0].className='gold';
+        }else if(result[i]===1)
+        {
+            showResult.children[i].children[0].className='silver';
+        }
     }
-}
-win(result);
-loss(result,string);
+    win(result);
+    loss(result,string);
 }
 function win(resulter)
 {
@@ -152,34 +175,34 @@ function win(resulter)
         {
             win=false
         }
-    });
+    }); 
     if(win)
     {
         bandeauResult.innerText='you win !';
         bandeauResult.style='display:block';
-    }
+    } 
 }
 function loss(resulter,string)
 {
     let looser=false;
     if(string==10)
     {
-        resulter.forEach(element => {
+      resulter.forEach(element => {
             if(element!==2)
             {
                 looser=true
             }
-        });
+        }); 
         if(looser)
         {
             bandeauResult.innerText='you loose !';
-            bandeauResult.style='display:block';
-        }
+        bandeauResult.style='display:block';
+        } 
     }
-
+    
 }
 let string = 1;
-let colorRandom = shufflePawns();
+let colorRamdon = shufflePawns();
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
 button(true);
@@ -187,8 +210,6 @@ let bandeauResult = document.getElementById('result');
 bandeauResult.addEventListener('click',function()
 {
     this.style='display:none';
-    colorRandom = shufflePawns();
+    colorRamdon = shufflePawns();
     playBoardStarter();
 });
-
-//fin du code

@@ -1,5 +1,6 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
 }
 h1{
     text-align: center;
@@ -110,4 +111,22 @@ button{
     margin: 0.25rem;
     background-color: gray;
     border-radius: 50%;
+}
+.gold{
+    background-color: gold !important;
+    border: 1px solid black;
+}
+.silver{
+    background-color: silver !important;
+    border: 1px solid black;
+}
+#result{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    opacity: 0.5;
+    color: white;
+    margin: auto;
+    display: none;
 }
