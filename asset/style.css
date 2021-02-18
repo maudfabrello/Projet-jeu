@@ -149,3 +149,11 @@ button{
     font-size: 3rem;
     border-radius: 2rem;
 }
+
+.rules {
+    color: aliceblue;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+}
