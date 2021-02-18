@@ -47,7 +47,7 @@ function shufflePawns()
 function verif(stringToverify)
 {
     var buttonVerif = document.createElement("button");
-    var textContent = document.createTextNode('Ok'); // effacerait la ligne si joueur n'est pas sûr de sa combinaison ?
+    var textContent = document.createTextNode('Ok');
     buttonVerif.appendChild(textContent);
     stringToverify.appendChild(buttonVerif);
     buttonVerif.addEventListener('click',function(){
@@ -209,7 +209,6 @@ let colorRamdon = shufflePawns();
 console.log(colorRamdon)
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
-button(true);
 let bandeauResult = document.getElementById('result');
 bandeauResult.addEventListener('click',function()
 {
