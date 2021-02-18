@@ -47,7 +47,7 @@ function shufflePawns()
 function verif(stringToverify)
 {
     var buttonVerif = document.createElement("button");
-    var textContent = document.createTextNode('Ok');
+    var textContent = document.createTextNode('Ok'); // effacerait la ligne si joueur n'est pas sûr de sa combinaison ?
     buttonVerif.appendChild(textContent);
     stringToverify.appendChild(buttonVerif);
     buttonVerif.addEventListener('click',function(){
@@ -134,21 +134,21 @@ function verifString(string)
         }
     }
     for(let i=0; i<result.length;i++)
-    {
+    {    
         if(result[i]<1)
         {
             for(let o =0;o<result.length;o++)
             {
                 if(stringColorPlayer[i]===colorRamdon[o])
                 {
-                    if(colorplay[o]==O)
+                    if(colorplay[o]==0)
                     {
                         colorplay[o]=1;
                         result[i]=1;
                     }
                 }
             }
-        }         
+        }
     }
     let showResult = document.querySelectorAll('.string');
     showResult.forEach(item=>{
@@ -198,7 +198,7 @@ function loss(resulter,string)
         }); 
         if(looser)
         {
-            bandeauResult.innerText='you lose !';
+            bandeauResult.innerText='you loose !';
         bandeauResult.style='display:block';
         } 
     }
@@ -206,7 +206,6 @@ function loss(resulter,string)
 }
 let string = 1;
 let colorRamdon = shufflePawns();
-console.log(colorRamdon)
 let startButton = document.getElementById('play');
 startButton.addEventListener('click',playBoardStarter);
 let bandeauResult = document.getElementById('result');
