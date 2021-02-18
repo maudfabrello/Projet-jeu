@@ -13,6 +13,7 @@ function playBoardStarter(){
     playBoard.innerHTML= render;
     string=1;
     deleteColor();
+    button(true);
 }
 function deleteColor()
 {
@@ -134,18 +135,20 @@ function verifString(string)
     }
     for(let i=0; i<result.length;i++)
     {
-        let colotarget = stringColorPlayer[i];
-        for(let o=0; o<result.length;o++)
+        if(result[i]<1)
         {
-            if(colotarget==colorRamdon[o])
+            for(let o =0;o<result.length;o++)
             {
-                if(colorplay[i]===0)
+                if(stringColorPlayer[i]===colorRamdon[o])
                 {
-                    result[i]=1;
-                    break;
+                    if(colorplay[o]==O)
+                    {
+                        colorplay[o]=1;
+                        result[i]=1;
+                    }
                 }
-            }                
-        }
+            }
+        }         
     }
     let showResult = document.querySelectorAll('.string');
     showResult.forEach(item=>{
@@ -195,7 +198,7 @@ function loss(resulter,string)
         }); 
         if(looser)
         {
-            bandeauResult.innerText='you loose !';
+            bandeauResult.innerText='you lose !';
         bandeauResult.style='display:block';
         } 
     }
