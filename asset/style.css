@@ -152,8 +152,9 @@ button{
 
 .rules {
     color: aliceblue;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 30px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
